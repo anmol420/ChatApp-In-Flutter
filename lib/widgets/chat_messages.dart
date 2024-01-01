@@ -28,13 +28,13 @@ class ChatMessages extends StatelessWidget {
 
         if (!chatSnapshots.hasData || chatSnapshots.data!.docs.isEmpty) {
           return const Center(
-            child: Text('No Messages Found!'),
+            child: Text('No messages found.'),
           );
         }
 
         if (chatSnapshots.hasError) {
           return const Center(
-            child: Text('Something Went Wrong!!'),
+            child: Text('Something went wrong...'),
           );
         }
 
@@ -56,8 +56,7 @@ class ChatMessages extends StatelessWidget {
 
             final currentMessageUserId = chatMessage['userId'];
             final nextMessageUserId =
-                nextChatMessage != null ? nextChatMessage['UserId'] : null;
-
+                nextChatMessage != null ? nextChatMessage['userId'] : null;
             final nextUserIsSame = nextMessageUserId == currentMessageUserId;
 
             if (nextUserIsSame) {
